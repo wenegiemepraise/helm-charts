@@ -6,14 +6,6 @@
 #     037647485236.dkr.ecr.us-west-2.amazonaws.com/citi-demo:operator-r3
 #     037647485236.dkr.ecr.us-west-2.amazonaws.com/citi-demo:target-allocator-r3
 #
-# The CloudWatch Agent is intentionally left on the chart's public image (the
-# r3 lineage only customizes the operator + TA for per-node / scraper-routing).
-#
-# Region pdx (us-west-2) is NOT a key in any image's repositoryDomainMap, so the
-# image helper (_helpers.tpl) falls back to repositoryDomainMap.public. We
-# override .public with the ECR registry host, set .repository to "citi-demo",
-# and pin the per-component tag.
-#
 # Usage (clusterName + region are still required by the chart):
 #   helm upgrade --install amazon-cloudwatch-observability \
 #     ./helm-charts/charts/amazon-cloudwatch-observability \
